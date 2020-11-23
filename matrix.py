@@ -16,8 +16,11 @@ class Matrix:
     def row(self, index):
         # Using Numpy more in depth
         my_arr = np.array(self.my_matrix)
-        return my_arr[index - 1]
-        
+        new_arr = []
+        for i in my_arr[index - 1,:]:
+            new_arr.append(i)
+        return new_arr
+
         # Naive
         # new_arr = []
         # for i in self.my_matrix[int(index-1),:]:
@@ -25,10 +28,17 @@ class Matrix:
         # return ndarray.tolist(self.my_matrix[int(index-1),:])
 
     def column(self, index):
+        my_arr = np.array(self.my_matrix)
         new_arr = []
-        for i in self.my_matrix[:,[int(index-1)]]:
-            new_arr.append(i)
+        for i in my_arr[:,[index-1]]:
+            new_arr.append(ndarray.item(i))
         return new_arr
+        # new_arr = []
+        # for i in self.my_matrix[:,[int(index-1)]]:
+        #     new_arr.append(i)
+        # return new_arr
 
 mat = Matrix('1 2 3 \n 4 5 6 \n 7 8 9')
 print(mat.row(1))
+
+print(type(mat.column(1)))
