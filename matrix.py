@@ -37,8 +37,3 @@ class Matrix:
         # for i in self.my_matrix[:,[int(index-1)]]:
         #     new_arr.append(i)
         # return new_arr
-
-mat = Matrix('1 2 3 \n 4 5 6 \n 7 8 9')
-print(mat.row(1))
-
-print(type(mat.column(1)))
