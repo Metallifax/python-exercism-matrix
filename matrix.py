@@ -1,5 +1,5 @@
-from numpy import matrix
-
+from numpy import matrix, ndarray
+import inspect
 class Matrix: 
     def __init__(self,matrix_string):
         my_string = matrix_string.replace('\n', ';')
@@ -13,15 +13,14 @@ class Matrix:
         return self.matrix_string
 
     def row(self, index):
-        return self.my_matrix[int(index),:]
-    
-    def my_column(self, index):
-        return self.my_matrix[:,[int(index)]]
+        new_arr = []
+        for i in self.my_matrix[int(index-1),:]:
+            new_arr.append(i)
+        return new_arr
 
     def column(self, index):
-        pass
+        new_arr = []
+        for i in self.my_matrix[:,[int(index-1)]]:
+            new_arr.append(i)
+        return new_arr
 
-mat = Matrix('1 2 3 4\n5 6 7 8\n9 10 11 12')
-print(mat.my_matrix)
-print(mat.row(0))
-print(mat.my_column(0))
