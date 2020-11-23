@@ -1,6 +1,5 @@
 import numpy as np
-from numpy import matrix, ndarray
-
+from numpy import matrix
 class Matrix: 
     def __init__(self,matrix_string):
         # The secret sauce that turns the string into a viable np.matrix
