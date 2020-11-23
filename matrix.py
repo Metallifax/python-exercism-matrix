@@ -1,6 +1,6 @@
 import numpy as np
 from numpy import matrix, ndarray
-import inspect
+
 class Matrix: 
     def __init__(self,matrix_string):
         my_string = matrix_string.replace('\n', ';')
@@ -14,26 +14,18 @@ class Matrix:
         return self.matrix_string
 
     def row(self, index):
-        # Using Numpy more in depth
+        # from matrix to ndArray type (numpy array)
         my_arr = np.array(self.my_matrix)
-        new_arr = []
-        for i in my_arr[index - 1,:]:
-            new_arr.append(i)
-        return new_arr
-
-        # Naive
-        # new_arr = []
-        # for i in self.my_matrix[int(index-1),:]:
-        #     new_arr.append(i)
-        # return ndarray.tolist(self.my_matrix[int(index-1),:])
+        # Using list comprehension to instantiate and assign ndArray items to new_arr.
+        # This also changes the data structure back into a python list
+        # Since my_arr is an ndArray structure inside a list comprehension I am able 
+        # to use np.array notation here
+        my_column = [x for x in my_arr[index-1,:]] 
+        return my_column
 
     def column(self, index):
+        # To ndArray (same as above)
         my_arr = np.array(self.my_matrix)
-        new_arr = []
-        for i in my_arr[:,[index-1]]:
-            new_arr.append(ndarray.item(i))
-        return new_arr
-        # new_arr = []
-        # for i in self.my_matrix[:,[int(index-1)]]:
-        #     new_arr.append(i)
-        # return new_arr
+        # List comprehension again using python lists
+        my_row = [x for x in my_arr[:,[index-1]]]
+        return my_row
