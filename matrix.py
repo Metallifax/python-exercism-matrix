@@ -5,11 +5,7 @@ class Matrix:
         # The secret sauce that turns the string into a viable np.matrix
         my_string = matrix_string.replace('\n', ';')
         self.matrix_string = ''.join(my_string)
-        self.my_matrix = self.get_matrix()
-        
-    def get_matrix(self):
-        # With this data structure I can parse rows and columns
-        return matrix(self.matrix_string)
+        self.my_matrix = matrix(self.matrix_string)
 
     def __str__(self):
         return self.matrix_string
